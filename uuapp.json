@@ -1,0 +1,18 @@
+{
+  "product": "oc_cink_maing01",
+  "version": "0.1.0",
+  "license": "License Commercial",
+  "description": {
+    "en": "",
+    "cs": ""
+  },
+  "oc_cink_maing01-hi": {},
+  "oc_cink_maing01-server": {
+    "devkit": {
+      "development": {
+        "appBoxLocationUri": "----- VALUE REQUIRED -----",
+        "appDeploymentUri": null
+      }
+    }
+  }
+}
