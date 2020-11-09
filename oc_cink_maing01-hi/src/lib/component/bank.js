@@ -16,7 +16,8 @@ const Bank = createVisualComponent({
 
     const attrs = Utils.VisualComponent.getAttrs(props, Config.Css.css`
       font-size: ${size}px;
-      cursor: ${onClick ? "pointer" : undefined}
+      cursor: ${onClick ? "pointer" : undefined};
+      user-select: none;
     `);
 
     return (

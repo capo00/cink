@@ -16,7 +16,7 @@ const UserHand = createVisualComponent({
     const { cards, selectedCard, bank } = props;
 
     const attrs = Utils.VisualComponent.getAttrs(props, Config.Css.css`
-      padding: 2px;
+      padding: 2px 4px;
       ${Tools.getMinMediaQueries("m", `
         padding: 8px;
       `)}
@@ -28,7 +28,9 @@ const UserHand = createVisualComponent({
 
     return (
       <Uu5Elements.Card {...attrs} meaning="positive" significance="highlighted">
-        <Bank>{bank}</Bank>
+        <div className={Config.Css.css`margin-bottom: 4px; color: #fff;`}>
+          <Bank>{bank}</Bank>
+        </div>
         <CardTable cards={cardMatrix} selectedCard={selectedCard} />
       </Uu5Elements.Card>
     );

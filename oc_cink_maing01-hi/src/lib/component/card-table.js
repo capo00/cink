@@ -27,14 +27,15 @@ const CardTable = createVisualComponent({
 
     const attrs = Utils.VisualComponent.getAttrs(props, Config.Css.css`
       display: grid;
-      grid-template-columns: repeat(${columnCount}, ${WIDTH_XS}px);
-      grid-template-rows: repeat(${rowCount}, ${HEIGHT_XS}px);
+      grid-template-columns: repeat(${columnCount}, ${WIDTH_XS + 4}px);
+      grid-template-rows: repeat(${rowCount}, ${HEIGHT_XS + 4}px);
       justify-content: center;
-      gap: 8px;
+      gap: 4px;
 
       ${Tools.getMinMediaQueries("m", `
-        grid-template-columns: repeat(${columnCount}, ${WIDTH}px);
-        grid-template-rows: repeat(${rowCount}, ${HEIGHT}px);
+        grid-template-columns: repeat(${columnCount}, ${WIDTH + 4}px);
+        grid-template-rows: repeat(${rowCount}, ${HEIGHT + 4}px);
+        gap: 8px;
       `)}
     `);
 

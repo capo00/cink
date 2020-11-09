@@ -15,13 +15,15 @@ const UserHand = createVisualComponent({
   render(props) {
     const { state, cards, bank, onBankClick, onCardClick } = props;
 
-    let meaning, handleOnBankClick, handleOnCardClick, significance;
+    // TODO fg after fix in uu5 Card
+    let meaning, handleOnBankClick, handleOnCardClick, significance, fg;
     switch (state) {
       case "active":
         meaning = "primary";
         significance = "highlighted";
         handleOnBankClick = onBankClick;
         handleOnCardClick = onCardClick;
+        fg = "#fff";
         break;
       case "winner":
         meaning = "warning";
@@ -30,7 +32,7 @@ const UserHand = createVisualComponent({
     }
 
     const attrs = Utils.VisualComponent.getAttrs(props, Config.Css.css`
-      padding: 2px;
+      padding: 2px 4px;
       ${Tools.getMinMediaQueries("m", `
         padding: 8px;
       `)}
@@ -38,7 +40,9 @@ const UserHand = createVisualComponent({
 
     return (
       <Uu5Elements.Card {...attrs} meaning={meaning} significance={significance}>
-        <Bank onClick={handleOnBankClick}>{bank}</Bank>
+        <div className={Config.Css.css`margin-bottom: 8px; color: ${fg};`}>
+          <Bank onClick={handleOnBankClick}>{bank}</Bank>
+        </div>
         <CardTable
           cards={[cards]}
           onClick={handleOnCardClick}

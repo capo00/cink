@@ -4,9 +4,9 @@ import Tools from "../tools";
 import Card from "./card";
 
 export const WIDTH = 56;
-export const WIDTH_XS = 40;
-export const HEIGHT = 93;
-export const HEIGHT_XS = 67;
+export const WIDTH_XS = 36;
+export const HEIGHT = 91;
+export const HEIGHT_XS = 59;
 
 const WIDTH_RATIO = 8;
 const HEIGHT_RATIO = 13;

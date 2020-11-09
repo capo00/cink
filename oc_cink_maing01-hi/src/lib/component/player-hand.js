@@ -15,11 +15,12 @@ const PlayerHand = createVisualComponent({
     const { name, state, cardCount, bank } = props;
     const screenSize = useScreenSize();
 
-    let meaning, significance;
+    let meaning, significance, fg;
     switch (state) {
       case "active":
         meaning = "primary";
         significance = "highlighted";
+        fg = "#fff";
         break;
       case "winner":
         meaning = "warning";
@@ -36,6 +37,7 @@ const PlayerHand = createVisualComponent({
     }
 
     const attrs = Utils.VisualComponent.getAttrs(props, Config.Css.css({
+      color: fg,
       display: "grid",
       gap: 4,
       gridTemplateColumns: "1fr 1fr",
