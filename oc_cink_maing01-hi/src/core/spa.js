@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { createVisualComponent } from "uu5g04-hooks";
+import { createVisualComponent } from "uu5g05";
 // import Plus4U5 from "uu_plus4u5g01";
 // import "uu_plus4u5g01-app";
 

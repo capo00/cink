@@ -1,16 +1,27 @@
 {
   "name": "oc_cink_maing01-hi",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "license": "License Commercial",
   "namespace": "OcCink",
   "spec": "uu5-app; uu_appg01@3.1.0",
   "dependencies": {
     "systemjs": "0.19.47",
-    "uu5g04": "^1.0.0"
+    "uu5g04": "^1.0.0",
+    "uu5g05": "^0.3.0",
+    "uu5g05-elements": "https://cdn.plus4u.net/beta/uu-uu5g05/0.4.0-beta.1/uu5g05-elements.tgz"
   },
   "uuBuildSettings": {
-    "externals": {}
+    "externals": {
+      "uu5g05": {
+        "cdnBaseUri": "https://cdn.plus4u.net/beta/uu-uu5g05/0.4.0-beta.1/",
+        "localBaseUri": "node_modules/uu5g05/dist/"
+      },
+      "uu5g05-elements": {
+        "cdnBaseUri": "https://cdn.plus4u.net/beta/uu-uu5g05/0.4.0-beta.1/",
+        "localBaseUri": "node_modules/uu5g05-elements/dist/"
+      }
+    }
   },
   "devDependencies": {
     "uu_appg01_devkit": "^3.1.0"
