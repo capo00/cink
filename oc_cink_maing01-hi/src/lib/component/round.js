@@ -42,7 +42,9 @@ const Round = createVisualComponent({
     useWillMount(() => {
       allPlayers.forEach((player, i) => {
         desk.increaseBank(player.decreaseBank());
+        player.clearCards();
       });
+      desk.dealCards([user, ...players], 8);
     });
 
     function nextPlayer() {
@@ -146,7 +148,7 @@ const Round = createVisualComponent({
             state: winner === user ? "winner" : (playerIndex === 0 ? "active" : null),
           })}
           {winner && (
-            <Uu5Elements.Button meaning="primary" size="xl" onClick={onEnd} width="100%">
+            <Uu5Elements.Button meaning="primary" significance="highlighted" size="xl" onClick={onEnd} width="100%">
               Pokračovat
             </Uu5Elements.Button>
           )}

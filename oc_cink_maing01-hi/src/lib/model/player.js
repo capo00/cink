@@ -21,6 +21,10 @@ class Player {
     return card;
   }
 
+  clearCards() {
+    this.cardList = [];
+  }
+
   get bank() {
     return this._bank;
   }

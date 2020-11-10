@@ -155,11 +155,8 @@ function loadBank() {
   return bank;
 }
 
-const NUMBERS = [7, 8, 9, 10, 11, 12, 13, 14];
-
 function Game({ user, players, onEnd }) {
   const [playerIndex, setPlayerIndex] = useState(() => Tools.getRandom(3));
-  dealCards([user, ...players]);
 
   return (
     <Round

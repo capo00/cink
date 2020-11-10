@@ -1,5 +1,5 @@
 import DeskComponent from "../component/desk";
-import { PACK_ONE } from "./pack";
+import Pack, { PACK_ONE } from "./pack";
 
 class Desk {
   constructor() {
@@ -7,6 +7,15 @@ class Desk {
     this.firstCard = null;
     this.availableCards = null;
     this.bank = 0;
+    this.pack = new Pack(PACK_ONE);
+  }
+
+  dealCards(players, cardCount) {
+    return players.forEach(player => {
+      for (let i = 0; i < cardCount; i++) {
+        player.addCard(this.pack.removeRandomCard());
+      }
+    });
   }
 
   isCardAvailable(card) {
