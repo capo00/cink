@@ -1,7 +1,7 @@
 import { createVisualComponent, PropTypes, Utils } from "uu5g05";
-import Config from "../config";
+import Config from "../../config";
 import { HEIGHT, HEIGHT_XS, WIDTH, WIDTH_XS } from "./card-style";
-import Tools from "../tools";
+import Tools from "../../tools";
 
 const CardTable = createVisualComponent({
   displayName: Config.TAG + "CardTable",

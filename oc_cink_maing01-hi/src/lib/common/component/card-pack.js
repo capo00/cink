@@ -1,5 +1,5 @@
 import { createVisualComponent, Utils } from "uu5g05";
-import Config from "../config";
+import Config from "../../config";
 import CardBack from "./card-back";
 
 const CardPack = createVisualComponent({

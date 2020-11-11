@@ -3,11 +3,6 @@ import PlayerHand from "../component/player-hand";
 import { PACK_ONE } from "./pack";
 
 class Opponent extends Player {
-  constructor(name, bank, id) {
-    super(name, bank);
-    this.id = id;
-  }
-
   decreaseBank(count = 1) {
     const r = super.decreaseBank(count);
     if (count !== r) {

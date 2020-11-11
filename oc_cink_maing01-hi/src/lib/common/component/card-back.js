@@ -1,8 +1,8 @@
 import { createHoc } from "uu5g05";
 import Uu5Elements from "uu5g05-elements";
-import Config from "../config";
+import Config from "../../config";
 import CardStyle, { WIDTH, WIDTH_XS } from "./card-style";
-import Tools from "../tools";
+import Tools from "../../tools";
 
 const CYAN = Uu5Elements.ColorSwatches.cyan;
 

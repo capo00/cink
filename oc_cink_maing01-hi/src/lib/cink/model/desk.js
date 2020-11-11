@@ -1,5 +1,5 @@
 import DeskComponent from "../component/desk";
-import Pack, { PACK_ONE } from "./pack";
+import Pack, { PACK_ONE } from "../../common/model/pack";
 
 class Desk {
   constructor() {
@@ -42,9 +42,9 @@ class Desk {
     return this.bank;
   }
 
-  render() {
+  render(props) {
     return (
-      <DeskComponent cards={this.cards} selectedCard={this.firstCard} bank={this.bank} />
+      <DeskComponent {...props} cards={this.cards} selectedCard={this.firstCard} bank={this.bank} />
     )
   }
 

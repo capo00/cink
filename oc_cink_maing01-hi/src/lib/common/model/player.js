@@ -1,8 +1,10 @@
+export const INITIAL_BANK = 20;
+
 class Player {
-  constructor(name, bank, color) {
+  constructor(name, data = {}) {
     this.name = name;
-    this._bank = bank;
-    this.color = color;
+    this._bank = data.bank || INITIAL_BANK;
+    this.color = data.color;
     this.cardList = [];
     this.looser = false;
   }
@@ -62,7 +64,7 @@ class Player {
   }
 
   play() {
-
+    // waiting
   }
 }
 

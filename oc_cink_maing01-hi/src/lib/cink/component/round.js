@@ -1,6 +1,6 @@
 import { createVisualComponent, useEffect, useRef, useState, useWillMount, Utils } from "uu5g05";
 import Uu5Elements from "uu5g05-elements";
-import Config from "../config";
+import Config from "../../config";
 import Desk from "../model/desk";
 
 const Players = createVisualComponent({
@@ -29,7 +29,7 @@ const Round = createVisualComponent({
   displayName: Config.TAG + "Round",
 
   render(props) {
-    const { user, players, initialPlayerIndex, onEnd } = props;
+    const { user, players, initialPlayerIndex, onEnd, bet } = props;
 
     const desk = useRef(new Desk()).current;
 
@@ -41,7 +41,7 @@ const Round = createVisualComponent({
 
     useWillMount(() => {
       allPlayers.forEach((player, i) => {
-        desk.increaseBank(player.decreaseBank());
+        desk.increaseBank(player.decreaseBank(bet));
         player.clearCards();
       });
       desk.dealCards([user, ...players], 8);
@@ -63,7 +63,7 @@ const Round = createVisualComponent({
               winner.increaseBank(desk.bank);
             }
           } else {
-            winner.increaseBank(player.decreaseBank(player.cards.length));
+            winner.increaseBank(player.decreaseBank(player.cards.length * bet));
           }
         });
       }
@@ -107,7 +107,7 @@ const Round = createVisualComponent({
     }
 
     function playBank(player) {
-      desk.increaseBank(player.decreaseBank());
+      desk.increaseBank(player.decreaseBank(bet));
       nextPlayer();
     }
 
@@ -135,6 +135,10 @@ const Round = createVisualComponent({
       padding: 4px;
     `);
 
+    function onEndHandler() {
+      onEnd(winner);
+    }
+
     return (
       <div {...attrs}>
         <Players players={players} active={activePlayer} winner={winner} />
@@ -148,7 +152,7 @@ const Round = createVisualComponent({
             state: winner === user ? "winner" : (playerIndex === 0 ? "active" : null),
           })}
           {winner && (
-            <Uu5Elements.Button meaning="primary" significance="highlighted" size="xl" onClick={onEnd} width="100%">
+            <Uu5Elements.Button meaning="primary" significance="highlighted" size="xl" onClick={onEndHandler} width="100%">
               Pokračovat
             </Uu5Elements.Button>
           )}

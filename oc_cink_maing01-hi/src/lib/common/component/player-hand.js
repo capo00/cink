@@ -1,6 +1,6 @@
 import { createVisualComponent, Utils, useScreenSize, Fragment } from "uu5g05";
 import Uu5Elements from "uu5g05-elements";
-import Config from "../config";
+import Config from "../../config";
 import Bank from "./bank";
 import CardPack from "./card-pack";
 

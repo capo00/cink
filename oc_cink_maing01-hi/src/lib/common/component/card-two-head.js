@@ -1,6 +1,6 @@
 import { createVisualComponent, Utils } from "uu5g05";
 import Uu5Elements from "uu5g05-elements";
-import Config from "../config";
+import Config from "../../config";
 import CardStyle from "./card-style";
 
 const numMap = { 11: "J", 12: "Q", 13: "K", 14: "A" };

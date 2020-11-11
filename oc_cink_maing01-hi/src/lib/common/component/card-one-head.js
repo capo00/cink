@@ -1,6 +1,6 @@
 import { createVisualComponent, Utils } from "uu5g05";
-import Config from "../config";
-import Tools from "../tools";
+import Config from "../../config";
+import Tools from "../../tools";
 import Card from "./card";
 import { WIDTH, WIDTH_XS } from "./card-style";
 

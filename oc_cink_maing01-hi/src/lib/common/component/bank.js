@@ -1,6 +1,6 @@
 import { createVisualComponent, Utils } from "uu5g05";
 import Uu5Elements from "uu5g05-elements";
-import Config from "../config";
+import Config from "../../config";
 
 const Bank = createVisualComponent({
   displayName: Config.TAG + "Bank",

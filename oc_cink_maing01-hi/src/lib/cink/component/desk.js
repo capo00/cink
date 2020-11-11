@@ -1,12 +1,12 @@
 import { createVisualComponent, Utils } from "uu5g05";
 import Uu5Elements from "uu5g05-elements";
-import Config from "../config";
-import Tools from "../tools";
-import CardTable from "./card-table";
-import Bank from "./bank";
+import Config from "../../config";
+import Tools from "../../tools";
+import CardTable from "../../common/component/card-table";
+import Bank from "../../common/component/bank";
 
-const UserHand = createVisualComponent({
-  displayName: Config.TAG + "UserHand",
+const Desk = createVisualComponent({
+  displayName: Config.TAG + "Desk",
 
   propTypes: {},
 
@@ -37,4 +37,4 @@ const UserHand = createVisualComponent({
   },
 });
 
-export default UserHand;
+export default Desk;

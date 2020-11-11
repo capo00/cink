@@ -1,5 +1,5 @@
 import Card, { ICONS } from "./card";
-import Tools from "../tools";
+import Tools from "../../tools";
 
 function generatePack(numbers) {
   const pack = [];
