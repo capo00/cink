@@ -1,6 +1,6 @@
 {
   "name": "oc_cink_maing01-hi",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "",
   "license": "License Commercial",
   "namespace": "OcCink",
@@ -13,6 +13,14 @@
   },
   "uuBuildSettings": {
     "externals": {
+      "react": {
+        "cdnBaseUri": "https://cdn.plus4u.net/libs/react/17.0.1/",
+        "localBaseUri": "node_modules/react/dist/"
+      },
+      "react-dom": {
+        "cdnBaseUri": "https://cdn.plus4u.net/libs/react-dom/17.0.1/",
+        "localBaseUri": "node_modules/react-dom/dist/"
+      },
       "uu5g05": {
         "cdnBaseUri": "https://cdn.plus4u.net/beta/uu-uu5g05/0.4.0-beta.1/",
         "localBaseUri": "node_modules/uu5g05/dist/"

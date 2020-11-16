@@ -4,6 +4,7 @@ import User from "./common/model/user";
 import Opponent from "./common/model/opponent";
 import Tools from "./tools";
 import Round from "./cink/component/round";
+import Welcome from "./cink/component/welcome";
 
 const LOG = location.hostname === "localhost";
 
@@ -39,7 +40,7 @@ function Game({ user, players, onEnd }) {
           });
 
           setPlayerIndex(playerIndex + 1 > 3 ? 0 : playerIndex + 1);
-          winner === user && (user.winCount++);
+          winner === user && user.winCount++;
           user.gameCount++;
           user.updateData({ gameCount: user.gameCount, winCount: user.winCount });
         }
@@ -79,16 +80,28 @@ export default function Prototype() {
   ];
 
   const [num, setNum] = useState(0);
+  const [route, setRoute] = useState("welcome");
 
   function reload() {
     setNum(num + 1);
+    setRoute(user.bank ? "play" : "increaseBank");
+  }
+
+  let comp;
+  switch (route) {
+    case "welcome":
+      comp = <Welcome onPlay={() => setRoute("play")} onSetting={() => setRoute("setting")} />;
+      break;
+    case "increaseBank":
+      comp = <IncreaseBankButton onClick={reload} user={user} />;
+      break;
+    default:
+      comp = <Game key={num} user={user} players={players} onEnd={reload} />;
   }
 
   return (
     <div>
-      {user.bank ? <Game key={num} user={user} players={players} onEnd={reload} /> : (
-        <IncreaseBankButton onClick={reload} user={user} />
-      )}
+      {comp}
     </div>
   );
 }

@@ -11,7 +11,7 @@ class Opponent extends Player {
     return r;
   }
 
-  async play(desk) {
+  async play(desk, bet) {
     let promise;
 
     if (this.id) {
@@ -33,7 +33,7 @@ class Opponent extends Player {
       card = PACK_ONE.find(c => c.kind === card.kind && c.num === card.num);
       desk.addCard(this.removeCard(card));
     } else {
-      desk.increaseBank(this.decreaseBank());
+      desk.increaseBank(this.decreaseBank(bet));
     }
 
     return true;

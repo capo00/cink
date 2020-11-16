@@ -40,6 +40,7 @@ const Round = createVisualComponent({
     const activePlayer = allPlayers[playerIndex];
 
     useWillMount(() => {
+      // start game - add to bank
       allPlayers.forEach((player, i) => {
         desk.increaseBank(player.decreaseBank(bet));
         player.clearCards();
@@ -71,7 +72,7 @@ const Round = createVisualComponent({
 
     useEffect(() => {
       (async function play() {
-        const played = await activePlayer.play(desk);
+        const played = await activePlayer.play(desk, bet);
 
         if (played) {
           if (activePlayer.cards.length) {
@@ -81,19 +82,6 @@ const Round = createVisualComponent({
           }
         }
       })();
-
-      // setTimeout(() => {
-      //   // playerIndex === 0 => user is playing => waiting on click from user
-      //   if (activePlayer !== user) {
-      //     const card = activePlayer.findAvailableCard(desk.availableCards);
-      //
-      //     if (card) {
-      //       playCard(activePlayer, card);
-      //     } else {
-      //       playBank(activePlayer);
-      //     }
-      //   }
-      // }, 1000);
     }, [activePlayer]);
 
     function playCard(player, card) {
