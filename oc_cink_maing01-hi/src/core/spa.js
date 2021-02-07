@@ -1,16 +1,16 @@
 //@@viewOn:imports
-import { createVisualComponent } from "uu5g05";
+import { createVisualComponent } from "uu5g04-hooks";
 // import Plus4U5 from "uu_plus4u5g01";
 // import "uu_plus4u5g01-app";
 
-import Config from "./config/config.js";
+// import Config from "./config/config.js";
 import Prototype from "../lib/prototype";
 // import SpaAuthenticated from "./spa-authenticated.js";
 //@@viewOff:imports
 
 const STATICS = {
   //@@viewOn:statics
-  displayName: Config.TAG + "Spa",
+  // displayName: Config.TAG + "Spa",
   //@@viewOff:statics
 };
 

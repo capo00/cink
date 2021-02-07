@@ -1,6 +1,6 @@
 import { AppContainer } from "react-hot-loader";
-// import UU5 from "uu5g04";
-import { Utils } from "uu5g05";
+import UU5 from "uu5g04";
+// import { Utils } from "uu5g05";
 
 import Spa from "./core/spa.js";
 
@@ -21,7 +21,7 @@ let _targetElementId;
 export function render(targetElementId) {
   _targetElementId = targetElementId;
 
-  Utils.DOM.render(
+  UU5.Common.DOM.render(
     <AppContainer>
       <Spa />
     </AppContainer>,

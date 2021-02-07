@@ -1,10 +1,12 @@
-import { useState, useEffect, useRef, useWillMount } from "uu5g05";
+import { useState } from "uu5g05";
 import Uu5Elements from "uu5g05-elements";
 import User from "./common/model/user";
 import Opponent from "./common/model/opponent";
 import Tools from "./tools";
 import Round from "./cink/component/round";
 import Welcome from "./cink/component/welcome";
+import { INITIAL_BANK } from "./common/model/player";
+import Calls from "./calls";
 
 const LOG = location.hostname === "localhost";
 
@@ -13,6 +15,10 @@ function log(...args) {
 }
 
 const WIN_RATIO = 10;
+
+function getBet(winCount) {
+  return 1 + Math.floor(winCount / WIN_RATIO);
+}
 
 function Game({ user, players, onEnd }) {
   const [playerIndex, setPlayerIndex] = useState(() => Tools.getRandom(3));
@@ -24,24 +30,25 @@ function Game({ user, players, onEnd }) {
       players={players}
       user={user}
       initialPlayerIndex={playerIndex}
-      bet={1 + Math.floor(user.winCount / WIN_RATIO)}
+      bet={getBet(user.winCount)}
       onEnd={(winner) => {
         if (user.bank <= 0) {
           user.updateData({ gameCount: 0, winCount: 0 });
           onEnd();
         } else {
+          winner === user && user.winCount++;
+          user.gameCount++;
+
           players.forEach((player, i) => {
             if (!player.bank) {
               log(`${player.name}: No bank. He is replaced.`, player.bank);
-              players[i] = new Opponent(getRandomName());
+              players[i] = new Opponent(getRandomName(), { bank: INITIAL_BANK * getBet(user.winCount) });
               log(`${players[i].name}: New player replaced old one.`);
               setLooserCount(looserCount + 1);
             }
           });
 
           setPlayerIndex(playerIndex + 1 > 3 ? 0 : playerIndex + 1);
-          winner === user && user.winCount++;
-          user.gameCount++;
           user.updateData({ gameCount: user.gameCount, winCount: user.winCount });
         }
       }}
@@ -73,10 +80,12 @@ function IncreaseBankButton({ onClick, user }) {
 
 export default function Prototype() {
   const user = new User("User");
+  const attrs = { bank: INITIAL_BANK * getBet(user.winCount) };
+
   const players = [
-    new Opponent(getRandomName()),
-    new Opponent(getRandomName()),
-    new Opponent(getRandomName()),
+    new Opponent(getRandomName(), attrs),
+    new Opponent(getRandomName(), attrs),
+    new Opponent(getRandomName(), attrs),
   ];
 
   const [num, setNum] = useState(0);
